@@ -31,4 +31,14 @@ public record Point(int X, int Y)
     {
         return a - d.ToPoint();
     }
+
+    public static Point operator -(Point a)
+    {
+        return a * -1;
+    }
+    
+    public static Point operator *(Point a, int n)
+    {
+        return new Point(a.X * n, a.Y * n);
+    }
 }

@@ -33,7 +33,7 @@ public static class Day05
             .Select(update => update[update.Count / 2])
             .Sum();
 
-        Console.WriteLine($"Part 1: {validMiddleSum}");
+        Console.WriteLine($"Part 2: {validMiddleSum}");
     }
 
     private static (List<(int left, int right)> rules, List<List<int>> updates) ParseInput(List<string> lines)

@@ -34,7 +34,7 @@ public static class Day07
             .Select(evalLine => evalLine.target)
             .Aggregate(BigInteger.Add);
 
-        Console.WriteLine($"Part 1: {sum}");
+        Console.WriteLine($"Part 2: {sum}");
     }
 
     private static (BigInteger target, Queue<BigInteger> numbers) ParseLine(string line)
