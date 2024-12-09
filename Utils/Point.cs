@@ -2,41 +2,33 @@
 
 public record Point(int X, int Y)
 {
-    public enum Direction
+    public static readonly Point Origin = new(0, 0);
+    public static readonly Point Up = new(0, -1);
+    public static readonly Point Down = new(0, 1);
+    public static readonly Point Left = new(-1, 0);
+    public static readonly Point Right = new(1, 0);
+    public static readonly Point UpLeft = new(-1, -1);
+    public static readonly Point UpRight = new(1, -1);
+    public static readonly Point DownLeft = new(-1, 1);
+    public static readonly Point DownRight = new(1, 1);
+
+    public static Point operator +(Point a, Point b)
     {
-        Up,
-        Down,
-        Left,
-        Right,
-        UpLeft,
-        UpRight,
-        DownLeft,
-        DownRight
+        return new Point(a.X + b.X, a.Y + b.Y);
     }
 
-    public static (int deltaX, int deltaY) GetDirectionDelta(Direction direction)
+    public static Point operator +(Point a, Direction d)
     {
-        return direction switch
-        {
-            Direction.Up => (0, -1),
-            Direction.Down => (0, 1),
-            Direction.Left => (-1, 0),
-            Direction.Right => (1, 0),
-            Direction.UpLeft => (-1, -1),
-            Direction.UpRight => (1, -1),
-            Direction.DownLeft => (-1, 1),
-            Direction.DownRight => (1, 1),
-            _ => (0, 0)
-        };
+        return a + d.ToPoint();
     }
 
-    public Point Move(Direction direction, int minX = int.MinValue, int maxX = int.MaxValue, int minY = int.MinValue, int maxY = int.MaxValue)
+    public static Point operator -(Point a, Point b)
     {
-        var (deltaX, deltaY) = GetDirectionDelta(direction);
+        return new Point(a.X - b.X, a.Y - b.Y);
+    }
 
-        var newX = Math.Clamp(X + deltaX, minX, maxX);
-        var newY = Math.Clamp(Y + deltaY, minY, maxY);
-
-        return new Point(newX, newY);
+    public static Point operator -(Point a, Direction d)
+    {
+        return a - d.ToPoint();
     }
 }

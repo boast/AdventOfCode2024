@@ -21,21 +21,21 @@ public static class Day04
 
         foreach (var pointX in allPointsWithX)
         {
-            foreach (var direction in Enum.GetValues<Point.Direction>())
+            foreach (var direction in Enum.GetValues<Direction>())
             {
-                var pointM = pointX.Move(direction);
+                var pointM = pointX + direction;
                 if (IsNotInMapOrHasNotValue(map, pointM, 'M'))
                 {
                     continue;
                 }
 
-                var pointA = pointM.Move(direction);
+                var pointA = pointM + direction;
                 if (IsNotInMapOrHasNotValue(map, pointA, 'A'))
                 {
                     continue;
                 }
 
-                var pointS = pointA.Move(direction);
+                var pointS = pointA + direction;
                 if (IsNotInMapOrHasNotValue(map, pointS, 'S'))
                 {
                     continue;
@@ -63,10 +63,10 @@ public static class Day04
             // .A. or .A. or .A. or .A.
             // M.S    S.S    S.M    M.M
 
-            if (!map.TryGetValue(pointA.Move(Point.Direction.UpLeft), out var upLeftValue) 
-                || !map.TryGetValue(pointA.Move(Point.Direction.DownRight), out var downRightValue)
-                || !map.TryGetValue(pointA.Move(Point.Direction.UpRight), out var upRightValue)
-                || !map.TryGetValue(pointA.Move(Point.Direction.DownLeft), out var downLeftValue))
+            if (!map.TryGetValue(pointA + Direction.UpLeft, out var upLeftValue) 
+                || !map.TryGetValue(pointA + Direction.DownRight, out var downRightValue)
+                || !map.TryGetValue(pointA + Direction.UpRight, out var upRightValue)
+                || !map.TryGetValue(pointA + Direction.DownLeft, out var downLeftValue))
             {
                 continue;
             }
