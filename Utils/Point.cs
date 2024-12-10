@@ -13,32 +13,28 @@ public record Point(int X, int Y)
     public static readonly Point DownRight = new(1, 1);
 
     public static Point operator +(Point a, Point b)
-    {
-        return new Point(a.X + b.X, a.Y + b.Y);
-    }
+        => new(a.X + b.X, a.Y + b.Y);
 
     public static Point operator +(Point a, Direction d)
-    {
-        return a + d.ToPoint();
-    }
+        => a + d.ToPoint();
 
     public static Point operator -(Point a, Point b)
-    {
-        return new Point(a.X - b.X, a.Y - b.Y);
-    }
+        => new(a.X - b.X, a.Y - b.Y);
 
     public static Point operator -(Point a, Direction d)
-    {
-        return a - d.ToPoint();
-    }
+        => a - d.ToPoint();
 
     public static Point operator -(Point a)
-    {
-        return a * -1;
-    }
-    
+        => a * -1;
+
     public static Point operator *(Point a, int n)
-    {
-        return new Point(a.X * n, a.Y * n);
-    }
+        => new(a.X * n, a.Y * n);
+
+    public List<Point> GetAdjacent() =>
+    [
+        this + Up,
+        this + Right,
+        this + Down,
+        this + Left
+    ];
 }
