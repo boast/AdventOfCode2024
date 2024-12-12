@@ -30,6 +30,18 @@ public static class DirectionExtensions
         };
     }
 
+    public static Direction TurnRight45(this Direction direction)
+    {
+        return direction switch
+        {
+            Direction.Up => Direction.UpRight,
+            Direction.Right => Direction.DownRight,
+            Direction.Down => Direction.DownLeft,
+            Direction.Left => Direction.UpLeft,
+            _ => throw new ArgumentOutOfRangeException(nameof(direction), direction, null)
+        };
+    }
+
     public static Point ToPoint(this Direction direction)
     {
         return direction switch
