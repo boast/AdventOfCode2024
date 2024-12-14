@@ -4,7 +4,7 @@ using Microsoft.Z3;
 
 namespace AdventOfCode2024.Days;
 
-public partial class Day13
+public static partial class Day13
 {
     public static void Solve()
     {

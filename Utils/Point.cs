@@ -33,6 +33,15 @@ public record Point(long X, long Y)
     public static Point operator *(Point a, long n)
         => new(a.X * n, a.Y * n);
 
+    public static Point operator %(Point a, Point b)
+        => new(a.X % b.X, a.Y % b.Y);
+
+    public static Point MoveX(Point a, long n)
+        => a with { X = a.X + n };
+
+    public static Point MoveY(Point a, long n)
+        => a with { Y = a.Y + n };
+
     public List<Point> GetAdjacent() =>
     [
         this + Up,
