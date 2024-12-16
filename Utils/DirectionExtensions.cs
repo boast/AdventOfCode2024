@@ -29,6 +29,18 @@ public static class DirectionExtensions
             _ => throw new ArgumentOutOfRangeException(nameof(direction), direction, null)
         };
     }
+    
+    public static Direction TurnLeft90(this Direction direction)
+    {
+        return direction switch
+        {
+            Direction.Up => Direction.Left,
+            Direction.Left => Direction.Down,
+            Direction.Down => Direction.Right,
+            Direction.Right => Direction.Up,
+            _ => throw new ArgumentOutOfRangeException(nameof(direction), direction, null)
+        };
+    }
 
     public static Direction TurnRight45(this Direction direction)
     {
