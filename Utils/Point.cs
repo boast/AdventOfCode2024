@@ -49,4 +49,7 @@ public record Point(long X, long Y)
         this + Down,
         this + Left
     ];
+
+    public long ManhattanDistance(Point other)
+        => Math.Abs(X - other.X) + Math.Abs(Y - other.Y);
 }
