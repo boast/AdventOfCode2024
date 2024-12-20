@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using System.Numerics;
-using AdventOfCode2024.Utils;
+﻿using AdventOfCode2024.Utils;
 
 namespace AdventOfCode2024.Days;
 

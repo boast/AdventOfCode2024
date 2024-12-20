@@ -2,7 +2,7 @@
 
 namespace AdventOfCode2024.Days;
 
-public static partial class Day16
+public static class Day16
 {
     private const char Start = 'S';
     private const char End = 'E';

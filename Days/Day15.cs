@@ -1,9 +1,8 @@
-﻿using System.Text.RegularExpressions;
-using AdventOfCode2024.Utils;
+﻿using AdventOfCode2024.Utils;
 
 namespace AdventOfCode2024.Days;
 
-public static partial class Day15
+public static class Day15
 {
     private const char Robot = '@';
 
