@@ -2,10 +2,10 @@
 
 public enum Direction
 {
-    Up,
-    Down,
-    Left,
-    Right,
+    Up = '^',
+    Down = 'v',
+    Left = '<',
+    Right = '>',
     UpLeft,
     UpRight,
     DownLeft,

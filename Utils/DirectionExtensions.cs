@@ -29,7 +29,7 @@ public static class DirectionExtensions
             _ => throw new ArgumentOutOfRangeException(nameof(direction), direction, null)
         };
     }
-    
+
     public static Direction TurnLeft90(this Direction direction)
     {
         return direction switch
